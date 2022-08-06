@@ -52,10 +52,19 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    testFixtures {
+        enable true
+
+        // enable testFixtures's android resources (disabled by default)
+        // androidResources true
+    }
     android.testOptions {
         unitTests.all {
             useJUnitPlatform()
         }
+    }
+    lint {
+        ignoreTestFixturesSources true
     }
 }
 
