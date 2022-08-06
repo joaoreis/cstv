@@ -4,7 +4,7 @@ import br.com.jxr.cstv.data.model.Match
 import io.mockk.coEvery
 import io.mockk.mockk
 
-val api = ApiBuilder.buildApi<PandaScoreApi>(baseUrl)
+val api = ApiBuilder.buildApi<PandaScoreApi>(BASE_URL)
 val mockApi = mockk<PandaScoreApi>().apply {
     coEvery {
         getMatches(

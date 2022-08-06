@@ -26,7 +26,9 @@ class RemoteDataSourceTest : BehaviorSpec({
         }
 
         When("load is called again") {
-            val result = datasource.load(params = PagingSource.LoadParams.Refresh(key = 2, loadSize = TestLoadSize, true))
+            val result = datasource.load(
+                params = PagingSource.LoadParams.Refresh(key = 2, loadSize = TestLoadSize, true)
+            )
             Then("Should return another page with other matches") {
                 result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, Match>>()
                 result.data shouldHaveAtLeastSize TestLoadSize
