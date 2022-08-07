@@ -12,7 +12,7 @@ private const val INITIAL_PAGE = 1
 const val FIELD_STATUS = "status"
 const val FIELD_BEGIN_AT = "begin_at"
 
-class RemoteDataSource @Inject constructor(
+class MatchRemoteDataSource @Inject constructor(
     private val api: PandaScoreApi
 ) : PagingSource<Int, MatchDto>() {
 

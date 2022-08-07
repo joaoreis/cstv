@@ -10,7 +10,7 @@ private const val TestLoadSize = 2
 
 class RemoteDataSourceTest : BehaviorSpec({
     Given("A datasource for the Pandascore api") {
-        val datasource = RemoteDataSource(api)
+        val datasource = MatchRemoteDataSource(api)
         When("load is called a single time") {
             val result = datasource.load(
                 PagingSource.LoadParams.Refresh(
@@ -22,16 +22,6 @@ class RemoteDataSourceTest : BehaviorSpec({
             Then("Should return a Page with matches") {
                 result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, MatchDto>>()
                 result.data shouldHaveAtLeastSize 2
-            }
-        }
-
-        When("load is called again") {
-            val result = datasource.load(
-                params = PagingSource.LoadParams.Refresh(key = 2, loadSize = TestLoadSize, true)
-            )
-            Then("Should return another page with other matches") {
-                result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, MatchDto>>()
-                result.data shouldHaveAtLeastSize TestLoadSize
             }
         }
     }

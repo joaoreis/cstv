@@ -6,7 +6,7 @@ import io.kotest.matchers.shouldNotBe
 class MatchRepositoryTest : BehaviorSpec({
 
     Given("A Match Repository") {
-        val repo = MatchRepository(RemoteDataSource(api))
+        val repo = MatchRepository(MatchRemoteDataSource(api))
         When("MatchRepository.getMatches() is called") {
             val actual = repo.getMatches()
             Then("actual should contain items") {
