@@ -5,8 +5,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import br.com.jxr.cstv.data.remote.api.NETWORK_PAGE_SIZE
 import br.com.jxr.cstv.data.remote.dto.MatchDto
-import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
+import kotlinx.coroutines.flow.Flow
 
 class MatchRepository @Inject constructor(
     private val matchDataSource: MatchRemoteDataSource
