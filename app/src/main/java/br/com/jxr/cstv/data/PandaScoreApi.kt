@@ -1,6 +1,6 @@
 package br.com.jxr.cstv.data
 
-import br.com.jxr.cstv.data.model.Match
+import br.com.jxr.cstv.data.model.dto.MatchDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -15,5 +15,5 @@ interface PandaScoreApi {
         @Query("per_page") pageSize: Int = NETWORK_PAGE_SIZE,
         @Query("sort") sort: String,
         @Query("range[begin_at]") beginAt: String
-    ): List<Match>
+    ): List<MatchDto>
 }

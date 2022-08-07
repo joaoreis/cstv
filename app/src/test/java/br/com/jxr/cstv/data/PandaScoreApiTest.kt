@@ -1,6 +1,6 @@
 package br.com.jxr.cstv.data
 
-import br.com.jxr.cstv.data.model.Match
+import br.com.jxr.cstv.data.model.dto.MatchDto
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.shouldNotBe
@@ -16,8 +16,9 @@ internal class PandaScoreApiTest : BehaviorSpec({
                 beginAt = "2022-08-02,,2023-08-02"
             )
             Then("The API should return a list of Matches") {
-                result shouldNotBe emptyList<Match>()
+                result shouldNotBe emptyList<MatchDto>()
                 result.shouldHaveAtLeastSize(10)
+                println(result)
             }
         }
     }

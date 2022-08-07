@@ -1,13 +1,12 @@
-package br.com.jxr.cstv.data.model
+package br.com.jxr.cstv.data.model.dto
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Match(
-    val id: Int,
+data class LeagueDto(
     val name: String,
-    @Json(name = "begin_at")
-    val beginAt: String?
+    @Json(name = "image_url")
+    val imageUrl: String?
 ) : Parcelable

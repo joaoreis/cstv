@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repository: MatchRepository
+    repository: MatchRepository
 ) : ViewModel() {
 
     val getMatches = repository.getMatches().cachedIn(viewModelScope)

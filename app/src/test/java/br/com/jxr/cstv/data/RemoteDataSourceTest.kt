@@ -1,7 +1,7 @@
 package br.com.jxr.cstv.data
 
 import androidx.paging.PagingSource
-import br.com.jxr.cstv.data.model.Match
+import br.com.jxr.cstv.data.model.dto.MatchDto
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.types.shouldBeTypeOf
@@ -20,7 +20,7 @@ class RemoteDataSourceTest : BehaviorSpec({
                 )
             )
             Then("Should return a Page with matches") {
-                result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, Match>>()
+                result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, MatchDto>>()
                 result.data shouldHaveAtLeastSize 2
             }
         }
@@ -30,7 +30,7 @@ class RemoteDataSourceTest : BehaviorSpec({
                 params = PagingSource.LoadParams.Refresh(key = 2, loadSize = TestLoadSize, true)
             )
             Then("Should return another page with other matches") {
-                result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, Match>>()
+                result.shouldBeTypeOf<PagingSource.LoadResult.Page<Int, MatchDto>>()
                 result.data shouldHaveAtLeastSize TestLoadSize
             }
         }

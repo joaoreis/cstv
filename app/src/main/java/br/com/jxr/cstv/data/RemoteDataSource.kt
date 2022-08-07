@@ -2,7 +2,7 @@ package br.com.jxr.cstv.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import br.com.jxr.cstv.data.model.Match
+import br.com.jxr.cstv.data.model.dto.MatchDto
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
@@ -13,13 +13,13 @@ const val FIELD_BEGIN_AT = "begin_at"
 
 class RemoteDataSource @Inject constructor(
     private val api: PandaScoreApi
-) : PagingSource<Int, Match>() {
+) : PagingSource<Int, MatchDto>() {
 
-    override fun getRefreshKey(state: PagingState<Int, Match>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, MatchDto>): Int? {
         return state.anchorPosition
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Match> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MatchDto> {
         val page = params.key ?: INITIAL_PAGE
         return try {
             val matches = getMatchesFromApi(page, params)
@@ -32,7 +32,7 @@ class RemoteDataSource @Inject constructor(
     private suspend fun getMatchesFromApi(
         page: Int,
         params: LoadParams<Int>
-    ): List<Match> {
+    ): List<MatchDto> {
         return api.getMatches(
             page = page,
             pageSize = params.loadSize,
@@ -50,7 +50,7 @@ class RemoteDataSource @Inject constructor(
 
     private fun returnPagedLoadResult(
         page: Int,
-        matches: List<Match>
+        matches: List<MatchDto>
     ) = LoadResult.Page(
         data = matches,
         prevKey = if (page == INITIAL_PAGE) null else page - 1,

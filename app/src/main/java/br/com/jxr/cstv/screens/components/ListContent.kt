@@ -10,12 +10,12 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import br.com.jxr.cstv.data.model.Match
+import br.com.jxr.cstv.data.model.dto.MatchDto
 import br.com.jxr.cstv.screens.LoadingItem
 import br.com.jxr.cstv.screens.LoadingScreen
 
 @Composable
-fun ListContent(listItems: LazyPagingItems<Match>) {
+fun ListContent(listItems: LazyPagingItems<MatchDto>) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(12.dp),
@@ -40,3 +40,17 @@ fun ListContent(listItems: LazyPagingItems<Match>) {
         }
     }
 }
+//
+// @Composable
+// @Preview
+// fun PreviewListContent() {
+//    val mainViewModel: MainViewModel = hiltViewModel()
+//    val getMatches = mainViewModel.getMatches.collectAsLazyPagingItems()
+//    LazyColumn(
+//        modifier = Modifier.fillMaxSize(),
+//        contentPadding = PaddingValues(12.dp),
+//        verticalArrangement = Arrangement.spacedBy(12.dp)
+//    ) {
+//
+//    }
+// }

@@ -1,6 +1,9 @@
 package br.com.jxr.cstv.screens
 
+import android.util.Log
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -16,8 +19,14 @@ fun MainScreen(
     mainViewModel: MainViewModel = hiltViewModel()
 ) {
     val getMatches = mainViewModel.getMatches.collectAsLazyPagingItems()
+    Log.d("tag", "${getMatches.itemCount}")
 
     Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(text = "CS:TV") }
+            )
+        },
         content = {
             ListContent(listItems = getMatches)
         }
@@ -26,7 +35,7 @@ fun MainScreen(
 
 @Preview
 @Composable
-fun Preview() {
+fun Previe() {
     val navController = rememberNavController()
     MainScreen(navController = navController)
 }

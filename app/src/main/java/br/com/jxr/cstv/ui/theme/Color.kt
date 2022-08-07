@@ -1,8 +1,11 @@
+@file:Suppress("unused")
+
 package br.com.jxr.cstv.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple200 = Color(0xFFBB86FC)
-val Purple500 = Color(0xFF6200EE)
-val Purple700 = Color(0xFF3700B3)
-val Teal200 = Color(0xFF03DAC5)
+val DarkPurple = Color(0xFF161621)
+val LightPurple = Color(0xFF272639)
+val Red = Color(0xFFf42a35)
+val LightGray = Color(0xFF515060)
+val LighterGray = Color(0xFF6c6b7e)

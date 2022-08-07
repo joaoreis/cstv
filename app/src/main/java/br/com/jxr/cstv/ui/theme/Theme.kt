@@ -1,21 +1,36 @@
-package br.com.jxr.cstv.ui.theme
+package br.com.jxr.cstv.ui.theme // ktlint-disable filename
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = LightPurple,
+    primaryVariant = DarkPurple,
+    secondary = Red,
+    onSecondary = Color.White,
+    background = DarkPurple,
+    onBackground = Color.White,
+    surface = LightPurple
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = LightPurple,
+    primaryVariant = DarkPurple,
+    secondary = Red,
+    onSecondary = Color.White,
+    background = DarkPurple,
+    onBackground = Color.White,
+    surface = LightPurple
+
+//            DarkPurple
+//            LightPurple
+//            Red =
+//            LightGray
+//            LighterGray
 
     /* Other default colors to override
     background = Color.White,
