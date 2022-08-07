@@ -5,12 +5,13 @@ import androidx.paging.PagingState
 import br.com.jxr.cstv.data.model.Match
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
+import javax.inject.Inject
 
 private const val INITIAL_PAGE = 1
 const val FIELD_STATUS = "status"
 const val FIELD_BEGIN_AT = "begin_at"
 
-class RemoteDataSource(
+class RemoteDataSource @Inject constructor(
     private val api: PandaScoreApi
 ) : PagingSource<Int, Match>() {
 
@@ -36,7 +37,7 @@ class RemoteDataSource(
             page = page,
             pageSize = params.loadSize,
             sort = "-$FIELD_STATUS,$FIELD_BEGIN_AT",
-            beginAt = getFormattedDateRange(),
+            beginAt = getFormattedDateRange()
         )
     }
 
@@ -52,7 +53,7 @@ class RemoteDataSource(
         matches: List<Match>
     ) = LoadResult.Page(
         data = matches,
-        prevKey = if (page == INITIAL_PAGE) null else page,
+        prevKey = if (page == INITIAL_PAGE) null else page - 1,
         nextKey = if (matches.isEmpty()) null else page + 1
     )
 }
