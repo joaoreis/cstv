@@ -33,7 +33,7 @@ fun MatchItem(match: MatchDto) {
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
             ) {
-                match.opponents[0].opponent?.let { TeamLogo(it) }
+                match.opponents?.get(0)?.opponent?.let { TeamLogo(it) }
                 Text(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
@@ -41,7 +41,7 @@ fun MatchItem(match: MatchDto) {
                     text = "VS",
                     color = LighterGray
                 )
-                match.opponents[0].opponent?.let { TeamLogo(it) }
+                match.opponents?.get(0)?.opponent?.let { TeamLogo(it) }
             }
         }
     }
