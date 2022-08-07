@@ -7,7 +7,7 @@ import io.kotest.matchers.shouldNotBe
 
 internal class PandaScoreApiTest : BehaviorSpec({
     Given("An API object") {
-        val api = ApiBuilder.buildApi<PandaScoreApi>(BASE_URL)
+        val api = api
         When("Get matches is called") {
             val result = api.getMatches(
                 page = 1,
