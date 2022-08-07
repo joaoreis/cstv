@@ -13,7 +13,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import br.com.jxr.cstv.R
-import br.com.jxr.cstv.data.model.dto.TeamDto
+import br.com.jxr.cstv.data.remote.dto.TeamDto
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 

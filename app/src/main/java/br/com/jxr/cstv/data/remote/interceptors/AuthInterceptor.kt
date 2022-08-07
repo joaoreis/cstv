@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.data
+package br.com.jxr.cstv.data.remote.interceptors
 
 import okhttp3.Interceptor
 import okhttp3.Response

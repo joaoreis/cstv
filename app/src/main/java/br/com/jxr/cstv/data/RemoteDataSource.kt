@@ -2,7 +2,8 @@ package br.com.jxr.cstv.data
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import br.com.jxr.cstv.data.model.dto.MatchDto
+import br.com.jxr.cstv.data.remote.api.PandaScoreApi
+import br.com.jxr.cstv.data.remote.dto.MatchDto
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject

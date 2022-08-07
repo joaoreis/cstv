@@ -10,7 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import br.com.jxr.cstv.data.model.dto.MatchDto
+import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.screens.LoadingItem
 import br.com.jxr.cstv.screens.LoadingScreen
 

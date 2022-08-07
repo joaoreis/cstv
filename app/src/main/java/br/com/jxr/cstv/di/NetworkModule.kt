@@ -1,20 +1,20 @@
 package br.com.jxr.cstv.di
 
 import br.com.jxr.cstv.BuildConfig
-import br.com.jxr.cstv.data.AuthInterceptor
-import br.com.jxr.cstv.data.BASE_URL
-import br.com.jxr.cstv.data.PandaScoreApi
+import br.com.jxr.cstv.data.remote.api.BASE_URL
+import br.com.jxr.cstv.data.remote.api.PandaScoreApi
+import br.com.jxr.cstv.data.remote.interceptors.AuthInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)

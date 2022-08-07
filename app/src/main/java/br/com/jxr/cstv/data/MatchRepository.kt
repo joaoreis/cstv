@@ -3,7 +3,8 @@ package br.com.jxr.cstv.data
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import br.com.jxr.cstv.data.model.dto.MatchDto
+import br.com.jxr.cstv.data.remote.api.NETWORK_PAGE_SIZE
+import br.com.jxr.cstv.data.remote.dto.MatchDto
 import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 

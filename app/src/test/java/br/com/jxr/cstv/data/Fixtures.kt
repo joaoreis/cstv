@@ -1,5 +1,6 @@
 package br.com.jxr.cstv.data
 
+import br.com.jxr.cstv.data.remote.api.PandaScoreApi
 import br.com.jxr.cstv.di.NetworkModule
 import io.mockk.coEvery
 import io.mockk.mockk

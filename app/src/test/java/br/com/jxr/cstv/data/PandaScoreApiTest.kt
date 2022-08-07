@@ -1,7 +1,7 @@
 package br.com.jxr.cstv.data
 
-import br.com.jxr.cstv.data.model.dto.MatchDto
-import br.com.jxr.cstv.data.model.dto.TeamDetailsDto
+import br.com.jxr.cstv.data.remote.dto.MatchDto
+import br.com.jxr.cstv.data.remote.dto.TeamDetailsDto
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
 import io.kotest.matchers.shouldNotBe
@@ -19,7 +19,6 @@ internal class PandaScoreApiTest : BehaviorSpec({
             Then("The API should return a list of Matches") {
                 result shouldNotBe emptyList<MatchDto>()
                 result.shouldHaveAtLeastSize(10)
-                println(result.joinToString("\n"))
             }
         }
 
@@ -28,7 +27,6 @@ internal class PandaScoreApiTest : BehaviorSpec({
             Then("The API should return a list of Teams") {
                 result shouldNotBe emptyList<TeamDetailsDto>()
                 result shouldHaveAtLeastSize 2
-                println(result)
             }
         }
     }

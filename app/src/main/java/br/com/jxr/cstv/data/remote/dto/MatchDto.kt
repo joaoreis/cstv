@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.data.model.dto
+package br.com.jxr.cstv.data.remote.dto
 
 import android.os.Parcelable
 import com.squareup.moshi.Json

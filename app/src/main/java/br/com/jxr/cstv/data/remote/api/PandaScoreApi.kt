@@ -1,7 +1,7 @@
-package br.com.jxr.cstv.data
+package br.com.jxr.cstv.data.remote.api
 
-import br.com.jxr.cstv.data.model.dto.MatchDto
-import br.com.jxr.cstv.data.model.dto.TeamDetailsDto
+import br.com.jxr.cstv.data.remote.dto.MatchDto
+import br.com.jxr.cstv.data.remote.dto.TeamDetailsDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 

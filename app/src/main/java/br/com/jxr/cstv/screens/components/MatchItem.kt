@@ -14,7 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import br.com.jxr.cstv.data.model.dto.MatchDto
+import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.ui.theme.LightPurple
 import br.com.jxr.cstv.ui.theme.LighterGray
 
