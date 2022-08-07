@@ -14,11 +14,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import br.com.jxr.cstv.R
 import br.com.jxr.cstv.data.remote.dto.TeamDto
+import br.com.jxr.cstv.domain.model.Team
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 
 @Composable
-fun TeamLogo(team: TeamDto) {
+fun TeamLogo(team: Team) {
     Column {
         TeamImage(
             url = team.imageUrl,

@@ -14,12 +14,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import br.com.jxr.cstv.data.remote.dto.MatchDto
+import br.com.jxr.cstv.domain.model.Match
 import br.com.jxr.cstv.ui.theme.LightPurple
 import br.com.jxr.cstv.ui.theme.LighterGray
 
 @Composable
-fun MatchItem(match: MatchDto) {
+fun MatchItem(match: Match) {
     Card(
         shape = RoundedCornerShape(16.dp),
         backgroundColor = LightPurple,
@@ -33,7 +33,7 @@ fun MatchItem(match: MatchDto) {
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
             ) {
-                match.opponents?.get(0)?.opponent?.let { TeamLogo(it) }
+                TeamLogo(team = match.teams.first())
                 Text(
                     modifier = Modifier
                         .align(Alignment.CenterVertically)
@@ -41,7 +41,7 @@ fun MatchItem(match: MatchDto) {
                     text = "VS",
                     color = LighterGray
                 )
-                match.opponents?.get(0)?.opponent?.let { TeamLogo(it) }
+                TeamLogo(team = match.teams.first())
             }
         }
     }

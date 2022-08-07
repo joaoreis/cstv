@@ -2,8 +2,9 @@ package br.com.jxr.cstv.data.remote.mappers
 
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.domain.model.Match
+import javax.inject.Inject
 
-class MatchMapper(
+class MatchMapper @Inject constructor(
     private val leagueMapper: LeagueMapper,
     private val serieMapper: SerieMapper,
     private val matchStatusMapper: MatchStatusMapper,

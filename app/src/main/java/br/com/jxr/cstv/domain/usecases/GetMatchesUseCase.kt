@@ -3,8 +3,7 @@ package br.com.jxr.cstv.domain.usecases
 import br.com.jxr.cstv.data.MatchRepository
 
 class GetMatchesUseCase(
-    private val matchRepository: MatchRepository,
-    private val matchMapper: MatchMapper
+    private val matchRepository: MatchRepository
 ) {
     operator fun invoke() {
     }

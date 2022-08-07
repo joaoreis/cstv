@@ -11,11 +11,12 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import br.com.jxr.cstv.data.remote.dto.MatchDto
+import br.com.jxr.cstv.domain.model.Match
 import br.com.jxr.cstv.screens.LoadingItem
 import br.com.jxr.cstv.screens.LoadingScreen
 
 @Composable
-fun ListContent(listItems: LazyPagingItems<MatchDto>) {
+fun ListContent(listItems: LazyPagingItems<Match>) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(12.dp),

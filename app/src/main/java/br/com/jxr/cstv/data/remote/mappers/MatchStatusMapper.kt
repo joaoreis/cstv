@@ -2,8 +2,9 @@ package br.com.jxr.cstv.data.remote.mappers
 
 import br.com.jxr.cstv.data.remote.dto.MatchStatusDto
 import br.com.jxr.cstv.domain.model.MatchStatus
+import javax.inject.Inject
 
-class MatchStatusMapper {
+class MatchStatusMapper @Inject constructor() {
     fun map(matchStatusDto: MatchStatusDto) =
         when (matchStatusDto) {
             MatchStatusDto.CANCELLED -> MatchStatus.CANCELLED

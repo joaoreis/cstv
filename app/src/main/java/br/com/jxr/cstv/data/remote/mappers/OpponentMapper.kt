@@ -3,8 +3,9 @@ package br.com.jxr.cstv.data.remote.mappers
 import br.com.jxr.cstv.data.remote.dto.OpponentDto
 import br.com.jxr.cstv.data.remote.dto.OpponentTypeDto
 import br.com.jxr.cstv.domain.model.Team
+import javax.inject.Inject
 
-class OpponentMapper {
+class OpponentMapper @Inject constructor() {
     fun map(opponentDto: OpponentDto): Team? =
         when {
             opponentDto.opponent == null || opponentDto.type != OpponentTypeDto.TEAM -> null
