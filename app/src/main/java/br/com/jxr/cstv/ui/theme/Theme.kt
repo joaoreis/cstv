@@ -26,12 +26,6 @@ private val LightColorPalette = lightColors(
     onBackground = Color.White,
     surface = LightPurple
 
-//            DarkPurple
-//            LightPurple
-//            Red =
-//            LightGray
-//            LighterGray
-
     /* Other default colors to override
     background = Color.White,
     surface = Color.White,

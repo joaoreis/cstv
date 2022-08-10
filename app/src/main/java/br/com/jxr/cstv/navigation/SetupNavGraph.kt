@@ -6,7 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import br.com.jxr.cstv.ui.screens.details.DetailsScreen
 import br.com.jxr.cstv.ui.screens.home.HomeScreen
-import br.com.jxr.cstv.ui.screens.splash.SplashScreen
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
@@ -14,10 +13,6 @@ fun SetupNavGraph(navController: NavHostController) {
         navController = navController,
         startDestination = Screen.Home.route
     ) {
-        composable(route = Screen.Splash.route) {
-            SplashScreen(navController = navController)
-        }
-
         composable(route = Screen.Home.route) {
             HomeScreen(navController = navController)
         }

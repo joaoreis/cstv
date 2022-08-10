@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Cstv.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/dark_purple</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_fuze</item>
+        <item name="postSplashScreenTheme">@style/Theme.Cstv</item>
+    </style>
+</resources>
