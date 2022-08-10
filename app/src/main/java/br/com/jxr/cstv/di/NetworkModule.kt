@@ -1,8 +1,8 @@
 package br.com.jxr.cstv.di
 
 import br.com.jxr.cstv.BuildConfig
-import br.com.jxr.cstv.data.remote.api.BASE_URL
-import br.com.jxr.cstv.data.remote.api.PandaScoreApi
+import br.com.jxr.cstv.data.remote.BASE_URL
+import br.com.jxr.cstv.data.remote.PandaScoreApi
 import br.com.jxr.cstv.data.remote.interceptors.AuthInterceptor
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

@@ -3,13 +3,13 @@ package br.com.jxr.cstv.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import br.com.jxr.cstv.data.MatchRepository
+import br.com.jxr.cstv.data.remote.repository.MatchRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    repository: MatchRepository
+    repository: MatchRepositoryImpl
 ) : ViewModel() {
 
     val getMatches = repository.getMatches().cachedIn(viewModelScope)

@@ -1,6 +1,7 @@
 package br.com.jxr.cstv.data
 
 import androidx.paging.PagingSource
+import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveAtLeastSize

@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.data.remote.api
+package br.com.jxr.cstv.data.remote
 
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.data.remote.dto.TeamDetailsDto

@@ -1,5 +1,7 @@
 package br.com.jxr.cstv.data
 
+import br.com.jxr.cstv.data.remote.FIELD_BEGIN_AT
+import br.com.jxr.cstv.data.remote.FIELD_STATUS
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.data.remote.dto.TeamDetailsDto
 import io.kotest.core.spec.style.BehaviorSpec

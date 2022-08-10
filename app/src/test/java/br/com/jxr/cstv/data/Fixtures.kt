@@ -1,7 +1,9 @@
 package br.com.jxr.cstv.data
 
-import br.com.jxr.cstv.data.remote.api.PandaScoreApi
+import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
+import br.com.jxr.cstv.data.remote.PandaScoreApi
 import br.com.jxr.cstv.data.remote.mappers.*
+import br.com.jxr.cstv.data.remote.repository.MatchRepositoryImpl
 import br.com.jxr.cstv.di.NetworkModule
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -22,7 +24,7 @@ val matchMapper = MatchMapper(
     OpponentMapper()
 )
 
-val repository = MatchRepository(dataSource, matchMapper = matchMapper)
+val repository = MatchRepositoryImpl(dataSource, matchMapper = matchMapper)
 
 val mockApi = mockk<PandaScoreApi>()
 fun mockSuccesResponse() {
