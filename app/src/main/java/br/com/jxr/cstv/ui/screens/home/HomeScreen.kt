@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens
+package br.com.jxr.cstv.ui.screens.home
 
 import android.util.Log
 import androidx.compose.material.Scaffold
@@ -13,7 +13,7 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import br.com.jxr.cstv.ui.screens.components.ListContent
 
 @Composable
-fun MainScreen(
+fun HomeScreen(
     navController: NavHostController,
     mainViewModel: HomeViewModel = hiltViewModel()
 ) {
@@ -34,7 +34,7 @@ fun MainScreen(
 
 @Preview
 @Composable
-fun Previe() {
+fun Preview() {
     val navController = rememberNavController()
-    MainScreen(navController = navController)
+    HomeScreen(navController = navController)
 }
