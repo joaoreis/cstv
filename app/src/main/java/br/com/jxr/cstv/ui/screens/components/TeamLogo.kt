@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.screens.components
+package br.com.jxr.cstv.ui.screens.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -13,7 +13,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import br.com.jxr.cstv.R
-import br.com.jxr.cstv.data.remote.dto.TeamDto
 import br.com.jxr.cstv.domain.model.Team
 import coil.compose.AsyncImage
 import coil.request.ImageRequest

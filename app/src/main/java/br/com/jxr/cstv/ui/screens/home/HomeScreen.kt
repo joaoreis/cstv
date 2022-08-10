@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.screens
+package br.com.jxr.cstv.ui.screens
 
 import android.util.Log
 import androidx.compose.material.Scaffold
@@ -10,13 +10,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
-import br.com.jxr.cstv.screens.components.ListContent
-import br.com.jxr.cstv.ui.MainViewModel
+import br.com.jxr.cstv.ui.screens.components.ListContent
 
 @Composable
 fun MainScreen(
     navController: NavHostController,
-    mainViewModel: MainViewModel = hiltViewModel()
+    mainViewModel: HomeViewModel = hiltViewModel()
 ) {
     val getMatches = mainViewModel.getMatches.collectAsLazyPagingItems()
     Log.d("tag", "${getMatches.itemCount}")

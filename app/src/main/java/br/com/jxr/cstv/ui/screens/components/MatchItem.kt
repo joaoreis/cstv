@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterialApi::class)
 
-package br.com.jxr.cstv.screens.components
+package br.com.jxr.cstv.ui.screens.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

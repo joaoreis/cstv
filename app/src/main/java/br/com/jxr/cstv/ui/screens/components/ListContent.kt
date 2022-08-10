@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.screens.components
+package br.com.jxr.cstv.ui.screens.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
@@ -10,10 +10,9 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
-import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.domain.model.Match
-import br.com.jxr.cstv.screens.LoadingItem
-import br.com.jxr.cstv.screens.LoadingScreen
+import br.com.jxr.cstv.ui.screens.LoadingItem
+import br.com.jxr.cstv.ui.screens.LoadingScreen
 
 @Composable
 fun ListContent(listItems: LazyPagingItems<Match>) {
