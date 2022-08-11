@@ -3,14 +3,14 @@ package br.com.jxr.cstv.ui.screens.home
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import br.com.jxr.cstv.data.remote.repository.MatchRepositoryImpl
+import br.com.jxr.cstv.domain.usecases.GetMatchesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    repository: MatchRepositoryImpl
+    getMatchesUseCase: GetMatchesUseCase
 ) : ViewModel() {
 
-    val getMatches = repository.getMatches().cachedIn(viewModelScope)
+    val getMatches = getMatchesUseCase().cachedIn(viewModelScope)
 }

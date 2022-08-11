@@ -13,5 +13,5 @@ data class MatchDto(
     val serie: SerieDto,
     val status: MatchStatusDto,
     @Json(name = "begin_at")
-    val beginAt: String?
+    val beginAt: String
 ) : Parcelable

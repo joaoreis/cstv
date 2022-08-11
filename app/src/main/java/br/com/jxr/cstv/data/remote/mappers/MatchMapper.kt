@@ -2,6 +2,7 @@ package br.com.jxr.cstv.data.remote.mappers
 
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.domain.model.Match
+import br.com.jxr.cstv.domain.utils.DateFormatter
 import javax.inject.Inject
 
 class MatchMapper @Inject constructor(
@@ -15,11 +16,11 @@ class MatchMapper @Inject constructor(
             Match(
                 id = id,
                 name = name,
-                teams = opponents.mapNotNull { opponentMapper.map(it) },
+                teams = opponents.map { opponentMapper.map(it) },
                 league = leagueMapper.map(league),
                 serie = serieMapper.map(serie),
                 status = matchStatusMapper.map(status),
-                beginAt = beginAt.orEmpty()
+                beginAt = DateFormatter.format(beginAt)
             )
         }
 }

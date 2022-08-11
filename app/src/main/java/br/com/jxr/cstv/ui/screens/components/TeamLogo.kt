@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import br.com.jxr.cstv.R
 import br.com.jxr.cstv.domain.model.Team
@@ -20,7 +21,7 @@ import coil.request.ImageRequest
 @Composable
 fun TeamLogo(team: Team) {
     Column {
-        TeamImage(
+        LogoImage(
             url = team.imageUrl,
             modifier = Modifier.size(75.dp)
         )
@@ -35,7 +36,7 @@ fun TeamLogo(team: Team) {
 }
 
 @Composable
-fun TeamImage(url: String?, modifier: Modifier = Modifier) {
+fun LogoImage(url: String?, modifier: Modifier = Modifier) {
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
             .data(url)
@@ -48,11 +49,11 @@ fun TeamImage(url: String?, modifier: Modifier = Modifier) {
     )
 }
 
-//@Composable
-//@Preview
-//fun previewTeamLogo() {
-//    val logoUrl =
-//        "https://static.wikia.nocookie.net/mobile-legends/" +
-//            "images/3/3a/NAVI-RU_logo.png/revision/latest?cb=20211208091612"
-//    TeamLogo(Team(1, "Navi", logoUrl))
-//}
+@Composable
+@Preview(showBackground = true)
+fun previewTeamLogo() {
+    val logoUrl =
+        "https://static.wikia.nocookie.net/mobile-legends/" +
+            "images/3/3a/NAVI-RU_logo.png/revision/latest?cb=20211208091612"
+    TeamLogo(Team(1, "Navi", logoUrl))
+}
