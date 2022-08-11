@@ -37,9 +37,12 @@ fun TeamLogo(team: Team) {
 
 @Composable
 fun LogoImage(url: String?, modifier: Modifier = Modifier) {
+    val imageData = if (url.isNullOrEmpty()) R.drawable.cs_logo else url
     AsyncImage(
         model = ImageRequest.Builder(LocalContext.current)
-            .data(url)
+            .data(imageData)
+            .placeholder(R.drawable.cs_logo)
+            .error(R.drawable.cs_logo)
             .crossfade(true)
             .build(),
         placeholder = painterResource(R.drawable.ic_image_placeholder),
