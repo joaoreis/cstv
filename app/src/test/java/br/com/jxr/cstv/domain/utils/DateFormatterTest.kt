@@ -3,49 +3,50 @@ package br.com.jxr.cstv.domain.utils
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.inspectors.forAll
 import io.kotest.matchers.shouldBe
-import java.time.Instant
-import java.time.LocalDate
-import java.time.temporal.ChronoUnit
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 
 class DateFormatterTest : FunSpec({
 
-    val sampleDate = Instant.parse("2022-08-10T15:00:00Z")
+    val sampleDate = ZonedDateTime.now()
     val dateFormatter = DateFormatter
+    val dayFormat = DateTimeFormatter.ofPattern("dd.MM")
+    val hoursFormat = DateTimeFormatter.ofPattern("HH:mm")
 
     test("Check format for Today") {
         val result = dateFormatter.format("$sampleDate")
-        val expected = "Hoje, 15:00"
+        val expected = "Hoje, ${sampleDate.format(hoursFormat)}"
         result shouldBe expected
     }
 
     test("Check format for Tomorrow") {
-        val tomorrow = sampleDate.plus(1, ChronoUnit.DAYS)
+        val tomorrow = sampleDate.plusDays(1)
         val result = dateFormatter.format("$tomorrow")
-        val expected = "Amanhã, 15:00"
+        val expected = "Amanhã, ${tomorrow.format(hoursFormat)}"
         result shouldBe expected
     }
 
     test("Check format within a Week") {
 
-        val daysList = buildList<LocalDate> {
+        val daysList = buildList<ZonedDateTime> {
             for (i in 2..6) {
-                sampleDate.plus(i.toLong(), ChronoUnit.DAYS)
+                add(ZonedDateTime.from(sampleDate.plusDays(i.toLong())))
             }
         }
 
         daysList.forAll { date ->
             val result = dateFormatter.format("$date")
             val newDayOfWeek = date.dayOfWeek
-
-            val expected = "${newDayOfWeek.toPtBr()}, 15:00"
+            val expected = "${newDayOfWeek.toPtBr()}, ${date.format(hoursFormat)}"
             result shouldBe expected
         }
     }
 
     test("Check format for after this week") {
-        val dateAfterThisWeek = sampleDate.plus(15, ChronoUnit.DAYS)
+        val dateAfterThisWeek = sampleDate.plusDays(15)
         val result = dateFormatter.format("$dateAfterThisWeek")
-        val expected = "25.08 15:00"
+        val expected = "${dateAfterThisWeek.format(dayFormat)} " +
+            dateAfterThisWeek.format(hoursFormat)
         result shouldBe expected
     }
 })

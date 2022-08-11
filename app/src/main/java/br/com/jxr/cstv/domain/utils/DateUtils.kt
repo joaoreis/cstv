@@ -1,11 +1,8 @@
 package br.com.jxr.cstv.domain.utils
 
 import java.time.DayOfWeek
-import java.time.LocalDateTime
 import java.time.ZonedDateTime
-import java.time.chrono.ChronoZonedDateTime
 import java.time.format.DateTimeFormatter
-import java.time.temporal.ChronoUnit
 
 object DateFormatter {
     fun format(dateStr: String): String {
@@ -16,22 +13,25 @@ object DateFormatter {
         return when {
             date.isToday() -> "Hoje, $formattedHours"
             date.isTomorrow() -> "Amanhã, $formattedHours"
-            date.isWithinAWeek() -> "${date.dayOfWeek.toPtBr()} $formattedHours"
+            date.isWithinAWeek() -> "${date.dayOfWeek.toPtBr()}, $formattedHours"
             else -> "$formattedDay $formattedHours"
         }
     }
 }
 
-fun ZonedDateTime.isToday(): Boolean = this.dayOfYear == LocalDateTime.now().dayOfYear
+fun ZonedDateTime.isToday(): Boolean = this.toLocalDate() == ZonedDateTime.now().toLocalDate()
 
 fun ZonedDateTime.isTomorrow(): Boolean {
-    return this.dayOfYear == LocalDateTime.now().plusDays(1).dayOfYear
+    return this.toLocalDate() == ZonedDateTime.now().plusDays(1).toLocalDate()
 }
 
-private fun ZonedDateTime.isWithinAWeek(): Boolean {
-    val tomorrow = ChronoZonedDateTime.from(this).plus(1, ChronoUnit.DAYS)
-    val sameDayNextWeek = ChronoZonedDateTime.from(this).plus(7, ChronoUnit.DAYS)
-    return this.isAfter(tomorrow) and this.isBefore(sameDayNextWeek)
+fun ZonedDateTime.isWithinAWeek(): Boolean {
+    val dateAsLocalDate = this.toLocalDate()
+    val today = ZonedDateTime.now().toLocalDate()
+    val tomorrow = today.plusDays(1)
+    val sameDayNextWeek = today.plusDays(7)
+
+    return dateAsLocalDate.isAfter(tomorrow) && dateAsLocalDate.isBefore(sameDayNextWeek)
 }
 
 fun DayOfWeek.toPtBr(): String =
