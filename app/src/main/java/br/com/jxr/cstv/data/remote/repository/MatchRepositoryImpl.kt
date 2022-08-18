@@ -9,9 +9,9 @@ import br.com.jxr.cstv.data.remote.NETWORK_PAGE_SIZE
 import br.com.jxr.cstv.data.remote.mappers.MatchMapper
 import br.com.jxr.cstv.domain.model.Match
 import br.com.jxr.cstv.domain.repository.MatchRepository
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class MatchRepositoryImpl @Inject constructor(
     private val matchDataSource: MatchRemoteDataSource,

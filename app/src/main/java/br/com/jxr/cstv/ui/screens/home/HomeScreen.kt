@@ -1,7 +1,6 @@
 package br.com.jxr.cstv.ui.screens.home
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,7 +11,6 @@ import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -43,7 +41,6 @@ fun HomeScreen(
 fun DefaultAppbar() =
     TopAppBar(
         modifier = Modifier
-            .border(1.dp, Color.White)
             .fillMaxWidth()
             .height(80.dp),
         backgroundColor = DarkPurple,

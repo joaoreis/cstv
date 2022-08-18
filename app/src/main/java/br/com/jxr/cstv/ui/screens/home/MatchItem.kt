@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,67 +21,50 @@ import br.com.jxr.cstv.ui.theme.*
 
 @ExperimentalMaterialApi
 @Composable
-fun MatchItem(match: Match) {
+fun MatchItem(match: Match, modifier: Modifier = Modifier) {
     Card(
         shape = Shapes.large,
         backgroundColor = LightPurple,
-        modifier = Modifier.padding(15.dp),
+        modifier = modifier.padding(15.dp),
         onClick = {}
     ) {
         Column(
             content = {
-                Box(modifier = Modifier.align(Alignment.End)) {
-                    MatchTimer(match.beginAt, match.status)
+                Box(
+                    modifier = modifier
+                        .align(Alignment.End)
+                ) {
+                    val backgroundColor =
+                        if (match.status == MatchStatus.RUNNING) Red else LightGray
+                    MatchTimer(match.beginAt, backgroundColor, modifier)
                 }
-                MatchTeams(match)
+                Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                    MatchTeams(match = match)
+                }
+
                 MatchFooter(Modifier, match.league, match.serie)
             }
+
         )
     }
 }
 
 @Composable
-fun MatchTimer(startDate: String, status: MatchStatus) {
-    Card(
-        shape = Shapes.large,
-        backgroundColor = if (status == MatchStatus.RUNNING) Red else LightGray,
-        modifier = Modifier
-            .clipToBounds()
-            .offset(x = 30.dp, y = (-30).dp)
+private fun MatchTeams(modifier: Modifier = Modifier, match: Match) {
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.SpaceBetween,
+        modifier = modifier
+            .padding(10.dp)
     ) {
+        match.teams.firstOrNull()?.let { TeamLogo(team = it) }
         Text(
-            color = Color.White,
-            fontSize = 9.sp,
-            fontWeight = FontWeight.Bold,
-            text = startDate,
-            modifier = Modifier
-                .padding(22.dp)
-                .offset(x = (-13).dp, y = 15.dp)
+            text = "vs",
+            color = LighterGray,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 20.dp)
         )
-    }
-}
-
-@Composable
-private fun MatchTeams(match: Match) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp)
-    ) {
-        Row(
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-        ) {
-            match.teams?.firstOrNull()?.let { TeamLogo(team = it) }
-            Text(
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .padding(35.dp),
-                text = "VS",
-                color = LighterGray
-            )
-            match.teams?.firstOrNull()?.let { TeamLogo(team = it) }
-        }
+        TeamLogo(team = match.teams[1])
     }
 }
 
