@@ -2,30 +2,20 @@ package br.com.jxr.cstv.data
 
 import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
 import br.com.jxr.cstv.data.remote.PandaScoreApi
-import br.com.jxr.cstv.data.remote.mappers.*
 import br.com.jxr.cstv.data.remote.repository.MatchRepositoryImpl
-import br.com.jxr.cstv.di.NetworkModule
+import br.com.jxr.cstv.di.AppModule
 import io.mockk.coEvery
 import io.mockk.mockk
 
-val api = NetworkModule.providePandaScoreApi(
-    NetworkModule.provideRetrofit(
-        NetworkModule.provideOkhttpClient(),
-        NetworkModule.provideMoshi()
+val api = AppModule.providePandaScoreApi(
+    AppModule.provideRetrofit(
+        AppModule.provideOkhttpClient(),
+        AppModule.provideMoshi()
     )
 )
 
 val dataSource = MatchRemoteDataSource(api)
-
-val matchMapper = MatchMapper(
-    LeagueMapper(),
-    SerieMapper(),
-    MatchStatusMapper(),
-    OpponentMapper()
-)
-
-val repository = MatchRepositoryImpl(dataSource, matchMapper = matchMapper)
-
+val repository = MatchRepositoryImpl(dataSource)
 val mockApi = mockk<PandaScoreApi>()
 fun mockSuccesResponse() {
     coEvery {

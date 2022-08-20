@@ -8,10 +8,10 @@ import kotlinx.parcelize.Parcelize
 data class MatchDto(
     val id: Int,
     val name: String,
-    val opponents: List<OpponentDto>,
-    val league: LeagueDto,
-    val serie: SerieDto,
-    val status: MatchStatusDto,
+    val opponentsDto: List<OpponentDto>?,
+    val leagueDto: LeagueDto?,
+    val serieDto: SerieDto?,
+    val statusDto: MatchStatusDto?,
     @Json(name = "begin_at")
     val beginAt: String
 ) : Parcelable
