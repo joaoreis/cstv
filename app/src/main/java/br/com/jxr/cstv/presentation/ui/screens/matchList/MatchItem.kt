@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.presentation.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.matchList
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card

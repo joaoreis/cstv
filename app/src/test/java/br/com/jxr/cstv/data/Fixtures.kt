@@ -1,6 +1,6 @@
 package br.com.jxr.cstv.data
 
-import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
+import br.com.jxr.cstv.data.remote.MatchPagingSource
 import br.com.jxr.cstv.data.remote.PandaScoreApi
 import br.com.jxr.cstv.data.remote.repository.MatchRepositoryImpl
 import br.com.jxr.cstv.di.AppModule
@@ -14,7 +14,7 @@ val api = AppModule.providePandaScoreApi(
     )
 )
 
-val dataSource = MatchRemoteDataSource(api)
+val dataSource = MatchPagingSource(api)
 val repository = MatchRepositoryImpl(dataSource)
 val mockApi = mockk<PandaScoreApi>()
 fun mockSuccesResponse() {

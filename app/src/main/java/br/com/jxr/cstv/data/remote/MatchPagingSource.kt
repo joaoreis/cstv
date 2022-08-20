@@ -3,28 +3,36 @@ package br.com.jxr.cstv.data.remote
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import br.com.jxr.cstv.data.remote.dto.MatchDto
+import java.io.IOException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
+import retrofit2.HttpException
 
 private const val INITIAL_PAGE = 1
 const val FIELD_STATUS = "status"
 const val FIELD_BEGIN_AT = "begin_at"
 
-class MatchRemoteDataSource @Inject constructor(
+class MatchPagingSource @Inject constructor(
     private val api: PandaScoreApi
 ) : PagingSource<Int, MatchDto>() {
 
     override fun getRefreshKey(state: PagingState<Int, MatchDto>): Int? {
-        return state.anchorPosition
+        return state.anchorPosition?.let { position ->
+            val page = state.closestPageToPosition(position)
+            page?.prevKey?.minus(1) ?: page?.nextKey?.plus(1)
+        }
     }
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MatchDto> {
         val page = params.key ?: INITIAL_PAGE
+
         return try {
             val matches = getMatchesFromApi(page, params)
             returnPagedLoadResult(page, matches)
-        } catch (exception: Exception) {
+        } catch (exception: IOException) {
+            return LoadResult.Error(exception)
+        } catch (exception: HttpException) {
             return LoadResult.Error(exception)
         }
     }

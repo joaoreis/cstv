@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.presentation.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.matchList
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

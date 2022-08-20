@@ -1,7 +1,7 @@
 package br.com.jxr.cstv.data
 
 import androidx.paging.PagingSource
-import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
+import br.com.jxr.cstv.data.remote.MatchPagingSource
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveAtLeastSize
@@ -11,7 +11,7 @@ private const val TestLoadSize = 2
 
 class RemoteDataSourceTest : BehaviorSpec({
     Given("A datasource for the Pandascore api") {
-        val datasource = MatchRemoteDataSource(api)
+        val datasource = MatchPagingSource(api)
         When("load is called a single time") {
             val result = datasource.load(
                 PagingSource.LoadParams.Refresh(

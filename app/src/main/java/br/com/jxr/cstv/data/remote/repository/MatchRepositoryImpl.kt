@@ -4,24 +4,25 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.map
-import br.com.jxr.cstv.data.remote.MatchRemoteDataSource
+import br.com.jxr.cstv.data.remote.MatchPagingSource
 import br.com.jxr.cstv.data.remote.NETWORK_PAGE_SIZE
 import br.com.jxr.cstv.data.remote.mappers.toMatch
 import br.com.jxr.cstv.domain.model.Match
 import br.com.jxr.cstv.domain.repository.MatchRepository
+import javax.inject.Inject
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import javax.inject.Inject
 
 class MatchRepositoryImpl @Inject constructor(
-    private val matchDataSource: MatchRemoteDataSource,
+    private val matchDataSource: MatchPagingSource
 ) : MatchRepository {
-    override fun getMatches(): Flow<PagingData<Match>> {
-        val pagingConfig = PagingConfig(
-            pageSize = NETWORK_PAGE_SIZE,
-            enablePlaceholders = false
-        )
 
+    private val pagingConfig = PagingConfig(
+        pageSize = NETWORK_PAGE_SIZE,
+        enablePlaceholders = false
+    )
+
+    override fun getMatches(): Flow<PagingData<Match>> {
         return Pager(
             config = pagingConfig,
             pagingSourceFactory = { matchDataSource }

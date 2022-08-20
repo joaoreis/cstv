@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.presentation.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.matchList
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,15 +26,15 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun HomeScreen(
     navigator: DestinationsNavigator,
-    mainViewModel: HomeViewModel = hiltViewModel()
+    mainViewModel: MatchListViewModel = hiltViewModel()
 ) {
-    val getMatches = mainViewModel.getMatches.collectAsLazyPagingItems()
+    val matches = mainViewModel.matches.collectAsLazyPagingItems()
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { DefaultAppbar() },
         content = {
-            ListContent(listItems = getMatches)
+            ListContent(listItems = matches)
         }
     )
 }

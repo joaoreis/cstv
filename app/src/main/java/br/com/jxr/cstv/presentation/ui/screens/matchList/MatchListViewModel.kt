@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.presentation.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.matchList
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -8,9 +8,9 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class MatchListViewModel @Inject constructor(
     getMatchesUseCase: GetMatchesUseCase
 ) : ViewModel() {
 
-    val getMatches = getMatchesUseCase().cachedIn(viewModelScope)
+    val matches = getMatchesUseCase().cachedIn(viewModelScope)
 }

@@ -11,9 +11,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.items
 import br.com.jxr.cstv.domain.model.Match
-import br.com.jxr.cstv.presentation.ui.screens.LoadingItem
-import br.com.jxr.cstv.presentation.ui.screens.LoadingScreen
-import br.com.jxr.cstv.presentation.ui.screens.home.MatchItem
+import br.com.jxr.cstv.presentation.ui.screens.matchList.MatchItem
 
 @ExperimentalMaterialApi
 @Composable
@@ -35,7 +33,7 @@ fun ListContent(listItems: LazyPagingItems<Match>) {
                     item { LoadingItem() }
                 }
                 loadState.append is LoadState.Error -> {
-                    // TODO: Add Error View state
+                    // TODO: Add Error View state or show snackbar
                 }
             }
         }
