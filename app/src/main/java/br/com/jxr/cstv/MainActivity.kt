@@ -5,9 +5,9 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import androidx.navigation.compose.rememberNavController
-import br.com.jxr.cstv.navigation.SetupNavGraph
+import br.com.jxr.cstv.presentation.ui.screens.home.NavGraphs
 import br.com.jxr.cstv.presentation.ui.theme.CstvTheme
+import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi
@@ -18,8 +18,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             CstvTheme {
-                val navController = rememberNavController()
-                SetupNavGraph(navController)
+                DestinationsNavHost(navGraph = NavGraphs.root)
             }
         }
     }

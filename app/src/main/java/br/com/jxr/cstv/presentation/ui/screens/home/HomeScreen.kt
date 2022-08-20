@@ -18,12 +18,10 @@ import androidx.paging.compose.collectAsLazyPagingItems
 import br.com.jxr.cstv.presentation.ui.screens.components.ListContent
 import br.com.jxr.cstv.presentation.ui.theme.DarkPurple
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@Destination
-@RootNavGraph(start = true)
+@Destination(start = true)
 @ExperimentalMaterialApi
 @Composable
 fun HomeScreen(
