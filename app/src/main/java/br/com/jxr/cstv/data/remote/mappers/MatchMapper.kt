@@ -1,9 +1,9 @@
 package br.com.jxr.cstv.data.remote.mappers
 
-import android.util.Log
 import br.com.jxr.cstv.data.remote.dto.MatchDto
 import br.com.jxr.cstv.data.remote.dto.OpponentDto
 import br.com.jxr.cstv.domain.model.Match
+import br.com.jxr.cstv.domain.model.MatchStatus
 import br.com.jxr.cstv.domain.model.Team
 import br.com.jxr.cstv.domain.utils.DateFormatter
 import javax.inject.Inject
@@ -16,17 +16,22 @@ class MatchMapper @Inject constructor(
 ) {
     fun map(matchDto: MatchDto): Match =
         with(matchDto) {
+            val status = matchStatusMapper.map(status)
             Match(
                 id = id,
                 name = name,
                 teams = mapTeams(opponents),
                 league = leagueMapper.map(league),
                 serie = serieMapper.map(serie),
-                status = matchStatusMapper.map(status),
-                beginAt = DateFormatter.format(beginAt)
+                status = status,
+                beginAt = getFormattedDate(status, beginAt)
             )
-        }.also {
-            Log.d("MatchMapper", "map teams: ${it.teams.joinToString(" VS ")}")
+        }
+
+    private fun getFormattedDate(status: MatchStatus, dateStr: String): String =
+        when (status) {
+            MatchStatus.RUNNING -> "AGORA"
+            else -> DateFormatter.format(dateStr)
         }
 
     private fun mapTeams(opponents: List<OpponentDto>): List<Team> {
