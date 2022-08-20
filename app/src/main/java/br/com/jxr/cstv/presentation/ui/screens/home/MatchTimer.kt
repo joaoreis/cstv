@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.home
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -11,7 +11,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import br.com.jxr.cstv.ui.theme.Red
+import br.com.jxr.cstv.presentation.ui.theme.Red
 
 @Composable
 fun MatchTimer(startDate: String, backgroundColor: Color, modifier: Modifier = Modifier) {

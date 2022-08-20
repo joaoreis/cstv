@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.home
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,16 +14,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavHostController
 import androidx.paging.compose.collectAsLazyPagingItems
-import br.com.jxr.cstv.ui.screens.components.ListContent
-import br.com.jxr.cstv.ui.theme.DarkPurple
+import br.com.jxr.cstv.presentation.ui.screens.components.ListContent
+import br.com.jxr.cstv.presentation.ui.theme.DarkPurple
+import com.ramcosta.composedestinations.annotation.Destination
+import com.ramcosta.composedestinations.annotation.RootNavGraph
+import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Destination
+@RootNavGraph(start = true)
 @ExperimentalMaterialApi
 @Composable
 fun HomeScreen(
-    navController: NavHostController,
+    navigator: DestinationsNavigator,
     mainViewModel: HomeViewModel = hiltViewModel()
 ) {
     val getMatches = mainViewModel.getMatches.collectAsLazyPagingItems()

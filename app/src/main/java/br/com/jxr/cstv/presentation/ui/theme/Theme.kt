@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.theme // ktlint-disable filename
+package br.com.jxr.cstv.presentation.ui.theme // ktlint-disable filename
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

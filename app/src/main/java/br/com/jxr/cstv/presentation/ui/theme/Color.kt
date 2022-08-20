@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package br.com.jxr.cstv.ui.theme
+package br.com.jxr.cstv.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

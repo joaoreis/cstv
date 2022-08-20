@@ -7,7 +7,7 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import br.com.jxr.cstv.navigation.SetupNavGraph
-import br.com.jxr.cstv.ui.theme.CstvTheme
+import br.com.jxr.cstv.presentation.ui.theme.CstvTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalMaterialApi

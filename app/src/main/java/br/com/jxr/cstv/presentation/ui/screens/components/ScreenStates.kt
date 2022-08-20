@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens
+package br.com.jxr.cstv.presentation.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator

@@ -5,8 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import br.com.jxr.cstv.ui.screens.details.DetailsScreen
-import br.com.jxr.cstv.ui.screens.home.HomeScreen
+import br.com.jxr.cstv.presentation.ui.screens.details.DetailsScreen
+import br.com.jxr.cstv.presentation.ui.screens.home.HomeScreen
 
 @ExperimentalMaterialApi
 @Composable

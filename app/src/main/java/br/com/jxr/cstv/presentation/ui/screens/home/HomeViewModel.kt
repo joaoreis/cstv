@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

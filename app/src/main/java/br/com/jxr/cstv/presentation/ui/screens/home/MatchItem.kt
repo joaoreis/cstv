@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens.home
+package br.com.jxr.cstv.presentation.ui.screens.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
@@ -15,9 +15,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import br.com.jxr.cstv.domain.model.*
-import br.com.jxr.cstv.ui.screens.components.LogoImage
-import br.com.jxr.cstv.ui.screens.components.TeamLogo
-import br.com.jxr.cstv.ui.theme.*
+import br.com.jxr.cstv.presentation.ui.screens.components.LogoImage
+import br.com.jxr.cstv.presentation.ui.screens.components.TeamLogo
+import br.com.jxr.cstv.presentation.ui.theme.*
 
 @ExperimentalMaterialApi
 @Composable

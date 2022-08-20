@@ -1,4 +1,4 @@
-package br.com.jxr.cstv.ui.screens.components
+package br.com.jxr.cstv.presentation.ui.screens.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
