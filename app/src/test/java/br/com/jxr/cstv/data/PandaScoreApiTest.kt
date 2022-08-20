@@ -16,7 +16,7 @@ internal class PandaScoreApiTest : BehaviorSpec({
                 page = 1,
                 pageSize = 10,
                 sort = "-$FIELD_STATUS,$FIELD_BEGIN_AT",
-                beginAt = "2022-08-02,2023-08-02"
+                beginAt = "2022-08-20,2023-08-20"
             )
             Then("The API should return a list of Matches") {
                 result shouldNotBe emptyList<MatchDto>()
