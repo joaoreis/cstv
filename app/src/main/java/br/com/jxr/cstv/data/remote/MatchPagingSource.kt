@@ -20,7 +20,7 @@ class MatchPagingSource @Inject constructor(
     override fun getRefreshKey(state: PagingState<Int, MatchDto>): Int? {
         return state.anchorPosition?.let { position ->
             val page = state.closestPageToPosition(position)
-            page?.prevKey?.minus(1) ?: page?.nextKey?.plus(1)
+            page?.prevKey?.plus(1) ?: page?.nextKey?.minus(1)
         }
     }
 
@@ -28,6 +28,7 @@ class MatchPagingSource @Inject constructor(
         val page = params.key ?: INITIAL_PAGE
 
         return try {
+
             val matches = getMatchesFromApi(page, params)
             returnPagedLoadResult(page, matches)
         } catch (exception: IOException) {

@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 const val BASE_URL = "https://api.pandascore.co/csgo/"
-const val NETWORK_PAGE_SIZE = 20
+const val NETWORK_PAGE_SIZE = 3
 
 interface PandaScoreApi {
 
